@@ -2,7 +2,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 const Page = () => {
   const router = useRouter();
