@@ -11,10 +11,10 @@ const Header = () => {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand>
-          <Link href="#home" className="navbar-brand">
+          <Link href="/" className="navbar-brand">
+            React-Bootstrap
             {/* <Home /> */}
           </Link>
-          React-Bootstrap
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
