@@ -2,8 +2,8 @@
 import { IBlogs } from "@/types/backend";
 import Table from "react-bootstrap/Table";
 import { Button } from "react-bootstrap";
-import ModalAddNew from "./modal";
 import { useState } from "react";
+import ModalAddNew from "./modalAddNew";
 
 interface Props {
   blogs: IBlogs[];
