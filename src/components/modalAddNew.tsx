@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { toast } from "react-toastify";
+import { mutate } from "swr";
 
 type Props = {
   showModal: boolean;
@@ -33,6 +34,7 @@ const ModalAddNew = (props: Props) => {
         if (res) {
           toast.success("Okay");
           handleCloseModal();
+          mutate("http://localhost:8000/blogs");
         }
       });
   };
