@@ -4,6 +4,7 @@ import Table from "react-bootstrap/Table";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
 import ModalAddNew from "./modalAddNew";
+import ModalEdit from "./modalEdit";
 
 interface Props {
   blogs: IBlogs[];
@@ -12,6 +13,8 @@ interface Props {
 const TableApp = (props: Props) => {
   const { blogs } = props;
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [showModalUpdate, setShowModalUpdate] = useState<boolean>(false);
+  const [dataBlogs, setDataBlogs] = useState<IBlogs | null>(null);
 
   return (
     <>
@@ -40,15 +43,22 @@ const TableApp = (props: Props) => {
           </tr>
         </thead>
         <tbody>
-          {blogs.map((blog) => {
+          {blogs.map((item) => {
             return (
-              <tr key={blog.id}>
-                <td>{blog.id}</td>
-                <td>{blog.title}</td>
-                <td>{blog.author}</td>
+              <tr key={item.id}>
+                <td>{item.id}</td>
+                <td>{item.title}</td>
+                <td>{item.author}</td>
                 <td>
                   <Button variant="primary">View</Button>
-                  <Button variant="warning" className="mx-3">
+                  <Button
+                    variant="warning"
+                    className="mx-3"
+                    onClick={() => {
+                      setDataBlogs(item);
+                      setShowModalUpdate(true);
+                    }}
+                  >
                     Edit
                   </Button>
                   <Button variant="danger">Delete</Button>
@@ -59,6 +69,12 @@ const TableApp = (props: Props) => {
         </tbody>
       </Table>
       <ModalAddNew showModal={showModal} setShowModal={setShowModal} />
+      <ModalEdit
+        dataBlogs={dataBlogs}
+        setDataBlogs={setDataBlogs}
+        showModalUpdate={showModalUpdate}
+        setShowModalUpdate={setShowModalUpdate}
+      />
     </>
   );
 };

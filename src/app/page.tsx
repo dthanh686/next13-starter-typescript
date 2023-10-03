@@ -2,7 +2,7 @@
 import Link from "next/link";
 import t from "@/styles/app.module.css";
 import d from "@/styles/thanhtd.module.css";
-import TableApp from "@/components/table";
+import TableApp from "@/components/tableApp";
 import { useEffect } from "react";
 import useSWR from "swr";
 
@@ -42,7 +42,7 @@ const Home = () => {
       <Link href="/tiktok" className="nav-link">
         Tiktok
       </Link>
-      <TableApp blogs={data} />
+      <TableApp blogs={data.sort()} />
     </>
   );
 };
